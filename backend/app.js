@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import setRoutes from './routes/blogRoutes';
 import bodyParser from 'body-parser';
+import decodeToken from './controllers/decode-token';
 
 // express app
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 //app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(decodeToken);
 
 // blog routes
 setRoutes(app);
