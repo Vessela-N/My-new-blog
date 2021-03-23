@@ -1,28 +1,18 @@
 {
-  "name": "crash-course",
+  "name": "blog-recipes",
   "version": "1.0.0",
-  "description": "a node crash course",
-  "main": "server.js",
+  "description": "middle eastern food recipes",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -r esm app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iamshaunjp/node-crash-course.git"
-  },
-  "author": "net ninja",
+  "author": "vessela",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/iamshaunjp/node-crash-course/issues"
-  },
-  "homepage": "https://github.com/iamshaunjp/node-crash-course#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "ejs": "^3.1.2",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "lodash": "^4.17.15",
     "md5": "^2.3.0",
     "mongoose": "^5.9.10",
     "morgan": "^1.10.0"
