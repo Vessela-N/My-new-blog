@@ -9,16 +9,18 @@ export function login(req, res) {
 
     getById(userName)
         .then((result) => {
-            if (result === null || passHash !== result.passHash) {
+            if (result === null || passHash !== result.passHash) { //if user or password is incorrect
                 return res.status(401).json({
                     status: 'error',
                     message: 'Wrong username or password!',
                 });
             }
 
+            const maxTime = 3 * 24 * 60 * 60;
             const token = jwt.sign(
-                { userName, exp: Math.floor(Date.now() / 1000) + 60 * 60 },
-                secret
+                { userName}, // exp: Math.floor(Date.now() / 1000) + 60 * 60
+                secret,
+                {expiresIn: maxTime}
             );
 
             res.json({token});

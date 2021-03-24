@@ -4,7 +4,7 @@ function decodeToken(req, res, next) {
     const { authorization } = req.headers;
 
     if (authorization === undefined) {
-        next();
+        return next();
     }
     
     const secret = process.env.SECRET;

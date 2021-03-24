@@ -7,11 +7,30 @@ function recipe(mongoose) {
                 type: String,
                 required: true,
             },
-            snippet: {
+            servings: {
+                type: Number,
+                required: true,
+            },
+            description: {
+                type: String,
+            },
+            ingredients: {
+                type: Array,
+                required: true,
+            },
+            directions: {
+                type: Array,
+                required: true,
+            },
+            category: {
                 type: String,
                 required: true,
             },
-            body: {
+            cuisine: {
+                type: String,
+                required: true,
+            },
+            country: {
                 type: String,
                 required: true,
             },

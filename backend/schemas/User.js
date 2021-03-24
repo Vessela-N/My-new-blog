@@ -1,3 +1,5 @@
+import { isEmail } from 'validator';
+
 function user(mongoose) {
     const Schema = mongoose.Schema;
 
@@ -9,7 +11,10 @@ function user(mongoose) {
             },
             email: {
                 type: String,
-                required: true,
+                required: [true, 'Please enter an email!'],
+                unique: true,
+                lowercase: true,
+                validate: [isEmail, 'Please enter a valid email!']
             },
             _id: {
                 type: String,

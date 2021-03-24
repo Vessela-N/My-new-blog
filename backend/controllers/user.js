@@ -4,6 +4,16 @@ import md5 from 'md5';
 
 export function createUser(req, res) {
     const user = req.body;
+
+    if (user.password.length < 6) {
+        return res
+            .status(400)
+            .json({
+                status: 'error',
+                message: 'Password must be longer that 6 symbols!',
+            });
+    }
+
     const passHash = md5(user.password);
     console.log(passHash);
 
@@ -12,6 +22,7 @@ export function createUser(req, res) {
             console.log(result);
 
             if (result !== null) {
+                //if user exist
                 return res.status(400).json({
                     status: 'error',
                     message: 'User already exist!',
@@ -28,8 +39,7 @@ export function createUser(req, res) {
                     _id: user.userName,
                     passHash,
                 }),
-            ])
-            .then(() => res.json({ status: 'ok' }));
+            ]).then(() => res.json({ status: 'ok' }));
         })
         .catch((err) => res.status(400).json(err));
 }
