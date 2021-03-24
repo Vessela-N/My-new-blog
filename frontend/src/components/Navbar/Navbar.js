@@ -7,7 +7,8 @@ const Navbar = () => {
             <h1>Middle Eastern Food Recipes</h1>
             <div className='links'>
                 <Link to='/'>All recipes</Link>
-                <Link to='/create'>Create recipe</Link>
+                <Link to='/create'>Add your recipe</Link>
+                <Link className="login-links" to='/login'>Login</Link>
             </div>
         </nav>
     );
