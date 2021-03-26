@@ -6,7 +6,7 @@ const { Recipe } = schemaModels;
 export const save = commonSave(Recipe);
 
 export function load() {
-    return Recipe.find({}, ['title', 'createdAt']);
+    return Recipe.find(); //{}, ['title', 'createdAt']
 }
 
 export function loadById(id) {
