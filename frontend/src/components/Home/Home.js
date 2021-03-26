@@ -1,5 +1,5 @@
-import useFetch from './useFetch';
-import RecipeList from './RecipeList';
+import useFetch from '../../useFetch';
+import RecipeList from '../RecipeList/RecipeList';
 
 const Home = () => {
     const {data: recipes, isPending, error} = useFetch('http://localhost:3001/recipe');
