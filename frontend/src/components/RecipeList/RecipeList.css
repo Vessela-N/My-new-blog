@@ -1,0 +1,28 @@
+#recipes-title {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.recipe-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 80px;
+    margin: 80px AUTO;
+    max-width: 1200px;
+}
+
+.recipe-preview {
+    display: inline-block;
+    border-radius: 5px;
+    background: white;
+    position: relative;
+    text-align: center;
+    padding: 0 20px 30px 20px;
+    border: 2px solid burlywood;
+}
+
+.recipe-list a {
+    text-decoration: none;
+}

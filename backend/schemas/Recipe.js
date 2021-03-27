@@ -19,7 +19,7 @@ function recipe(mongoose) {
                 required: true,
             },
             directions: {
-                type: Array,
+                type: String,
                 required: true,
             },
             category: {
@@ -33,6 +33,11 @@ function recipe(mongoose) {
             country: {
                 type: String,
                 required: true,
+            },
+            imageUrl: {
+                type: String,
+                required: true,
+                validate: /^https?/,
             },
         },
         { timestamps: true }

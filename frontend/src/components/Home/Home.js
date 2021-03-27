@@ -10,7 +10,7 @@ const Home = () => {
             <Banner />
             {error && <div>{error}</div>}
             {isPending && <div>Loading...</div>}
-            {recipes && <RecipeList recipes={recipes} title='All recipes!' />}
+            {recipes && <RecipeList recipes={recipes} title='All recipes' />}
         </main>
       );
 }
