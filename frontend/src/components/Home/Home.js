@@ -1,4 +1,5 @@
 import useFetch from '../../useFetch';
+import Banner from '../Banner/Banner';
 import RecipeList from '../RecipeList/RecipeList';
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
 
     return (
         <main className="home">
+            <Banner />
             {error && <div>{error}</div>}
             {isPending && <div>Loading...</div>}
             {recipes && <RecipeList recipes={recipes} title='All recipes!' />}
