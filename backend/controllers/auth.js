@@ -9,6 +9,7 @@ export function login(req, res) {
 
     getById(userName)
         .then((result) => {
+        // console.log({result});
             if (result === null || passHash !== result.passHash) { //if user or password is incorrect
                 return res.status(401).json({
                     status: 'error',

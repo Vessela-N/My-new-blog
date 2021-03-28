@@ -12,3 +12,7 @@ export function load() {
 export function loadById(id) {
     return Recipe.findById(id);
 }
+
+export function loadByFilters(filters) {
+    return Recipe.find(filters);
+}

@@ -37,8 +37,12 @@ function recipe(mongoose) {
             imageUrl: {
                 type: String,
                 required: true,
-                validate: /^https?/,
+                validate: /^http?/,
             },
+            userName: {
+                type: String,
+                required: true,
+            }
         },
         { timestamps: true }
     );
