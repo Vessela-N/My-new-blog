@@ -1,25 +1,27 @@
 import useFetch from '../../useFetch';
-import Banner from '../Banner/Banner';
 import RecipeList from '../RecipeList/RecipeList';
-import {useParams} from 'react-router-dom';
+import './Home.css';
+import { useParams } from 'react-router-dom';
+import Cuisines from '../Cuisines/Cuisines';
 
 const Home = () => {
-    const {cuisine, category} = useParams()
-    console.log(cuisine);
-    const cuisineUrl = cuisine === undefined 
-    ? ''
-    : `?cuisines=${cuisine}`;
+    const { cuisine, category } = useParams();
+    const cuisineUrl = cuisine === undefined ? '' : `?cuisines=${cuisine}`;
 
-    const {data: recipes, isPending, error} = useFetch(`http://localhost:3001/recipe${cuisineUrl}`);
+    const { data: recipes, isPending, error } = useFetch(
+        `http://localhost:3001/recipe${cuisineUrl}`
+    );
 
     return (
-        <main className="home">
-            <Banner />
+        <main className='home'>
+            {/* <Cuisines /> */}
+            <div className="home-main">
             {error && <div>{error}</div>}
             {isPending && <div>Loading...</div>}
             {recipes && <RecipeList recipes={recipes} title='All recipes' />}
+            </div>
         </main>
-      );
-}
- 
+    );
+};
+
 export default Home;

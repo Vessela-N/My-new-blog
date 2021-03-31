@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Header from './components/Header';
 import Cuisines from './components/Cuisines';
-
+import Create from './components/Create';
 
 function App() {
     return (
@@ -11,7 +11,6 @@ function App() {
             <div className='App'>
                 <Header/>
                 <Navbar />
-                <Cuisines />
                 <div className='content'>
                     <Switch>
                         <Route exact path='/'>
@@ -19,6 +18,9 @@ function App() {
                         </Route>
                         <Route path='/cuisines/:cuisine'>
                             <Home />
+                        </Route>
+                        <Route>
+                            <Create path='/recipe/add'/>
                         </Route>
                     </Switch>
                 </div>

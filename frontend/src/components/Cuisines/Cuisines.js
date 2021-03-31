@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
+import './Cuisines.css';
 import cuisines from '../../common/cuisines';
 
 const Cuisines = () => {
     return (
-        <ul class='cuisines'>
+        <ul className='cuisines'>
             {Object.keys(cuisines).map((c) => {
                 return (
                     <li>
                         <Link
-                            to={`/cuisines/${c}`}
+                            to={`/cuisines/${c}`} // key?
                         >{`${cuisines[c]} cuisine`}</Link>
                     </li>
                 );

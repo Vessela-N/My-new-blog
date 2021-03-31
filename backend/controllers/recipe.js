@@ -1,4 +1,4 @@
-import cuisines from '../../frontend/src/common/cuisines';
+// import cuisines from '../../frontend/src/common/cuisines';
 import { load, save, loadById, loadByFilters } from '../models/recipe';
 
 export function createRecipe(req, res) {
