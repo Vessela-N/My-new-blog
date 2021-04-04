@@ -3,6 +3,7 @@ import RecipeList from '../RecipeList/RecipeList';
 import './Home.css';
 import { useParams } from 'react-router-dom';
 import Cuisines from '../Cuisines/Cuisines';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
     const { cuisine, category } = useParams();
@@ -14,6 +15,7 @@ const Home = () => {
 
     return (
         <main className='home'>
+            <Banner />
             {/* <Cuisines /> */}
             <div className="home-main">
             {error && <div>{error}</div>}

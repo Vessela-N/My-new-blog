@@ -6,5 +6,6 @@ const categories = {
     breakfast: "Breakfast & Brunch",
     main: "Main Dishes",
     side: "Side Dishes",
-    dessert: "Desserts & Sweets"
+    dessert: "Desserts & Sweets",
+    drink: "Drinks"
 }

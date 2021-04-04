@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Cuisines from './components/Cuisines';
 import Create from './components/Create';
+import Login from './components/Login/Login';
 
 function App() {
     return (
@@ -13,15 +14,10 @@ function App() {
                 <Navbar />
                 <div className='content'>
                     <Switch>
-                        <Route exact path='/'>
-                            <Home />
-                        </Route>
-                        <Route path='/cuisines/:cuisine'>
-                            <Home />
-                        </Route>
-                        <Route>
-                            <Create path='/recipe/add'/>
-                        </Route>
+                        <Route exact path='/' component={Home}/>
+                        <Route path='/cuisines/:cuisine' component={Home}/>
+                        <Route path='/recipe/add' component={Create}/>
+                        <Route path='/login' component={Login}/>
                     </Switch>
                 </div>
             </div>

@@ -1,35 +1,93 @@
 import './Create.css';
+import useToken from '../../common/useToken';
+import { useEffect } from 'react';
 
-const Create = () => {
+const Create = ({ history }) => {
+    const { token } = useToken();
+    useEffect(() => {
+        if (!token) {
+            history.push('/login');
+        }
+    }, [token, history]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target);
+        console.log(e.target.title.value);
+        const {
+            title,
+            servings,
+            description,
+            ingredients,
+            directions,
+            imageUrl,
+            category,
+            cuisine,
+            country,
+        } = e.target;
+
+        fetch('http://localhost:3001/recipe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+                title: title.value,
+                servings: servings.value,
+                description: description.value,
+                ingredients: ingredients.value,
+                directions: directions.value,
+                imageUrl: imageUrl.value,
+                category: category.value,
+                cuisine: cuisine.value,
+                country: country.value,
+            }),
+        }).then(() => {
+            console.log('new blog added');
+            history.push('/');
+        });
     };
 
     return (
         <div className='create'>
-            <h1>Add a new recipe</h1>
+            <h2>Add a new recipe</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='title-input'>Recipe title</label>
-                <input type='text' id="title-input" required />
+                <label htmlFor='title'>Recipe title</label>
+                <input type='text' id='title' name='title' required />
+                <label htmlFor='servings'>Servings</label>
+                <input
+                    type='number'
+                    name='servings'
+                    defaultValue='4'
+                    id='servings'
+                />
+                <label htmlFor='description'>Description</label>
+                <textarea
+                    name='description'
+                    id='description'
+                    cols='5'
+                    rows='5'
+                ></textarea>
+                <label htmlFor='ingredients'>Ingredients</label>
+                <textarea
+                    name='ingredients'
+                    id='ingredients'
+                    rows='12'
+                    cols='12'
+                ></textarea>
+                <label htmlFor='directions'>Directions</label>
+                <textarea
+                    name='directions'
+                    id='directions'
+                    rows='10'
+                    cols='10'
+                ></textarea>
 
-                <label htmlFor=''>Servings</label>
-                <input type='number' defaultValue='4' />
+                <label htmlFor='imageUrl'>Image</label>
+                <input type='text' name='imageUrl' id='imageUrl' />
 
-                <label htmlFor=''>Description</label>
-                <input type='text' />
-
-                <label htmlFor=''>Ingredients</label>
-                <textarea name='' id=''></textarea>
-
-                <label htmlFor=''>Directions</label>
-                <textarea name='' id=''></textarea>
-
-                <label htmlFor=''>Image</label>
-                <input type='text' />
-
-                <label htmlFor=''>Category</label>
-                <select name='' id=''>
+                <label htmlFor='category'>Category</label>
+                <select name='category' id='category'>
                     <option value='soup'>Soups</option>
                     <option value='salad'>Salads</option>
                     <option value='appetizer'>Appetizers & Snacks</option>
@@ -38,10 +96,11 @@ const Create = () => {
                     <option value='main'>Main Dishes</option>
                     <option value='side'>Side Dishes</option>
                     <option value='dessert'>Desserts & Sweets</option>
+                    <option value='drinks'>Drinks</option>
                 </select>
 
-                <label htmlFor=''>Cuisine</label>
-                <select name='' id=''>
+                <label htmlFor='cuisine'>Cuisine</label>
+                <select name='cuisine' id='cuisine'>
                     <option value='arab'>Arab</option>
                     <option value='turkish'>Turkish</option>
                     <option value='georgian'>Georgian</option>
@@ -54,8 +113,8 @@ const Create = () => {
                     <option value='jewish'>Jewish</option>
                 </select>
 
-                <label htmlFor=''>Country</label>
-                <select name='' id=''>
+                <label htmlFor='country'>Country</label>
+                <select name='country' id='country'>
                     <option value='lebanon'>Lebanon</option>
                     <option value='turkey'>Turkey</option>
                     <option value='cyprus'>Cyprus</option>
@@ -74,7 +133,7 @@ const Create = () => {
                     <option value='uae'>United Arab Emirates</option>
                 </select>
 
-                <input type="submit" className="create-submit" value="Create"/>
+                <button value='Create'>Create</button>
             </form>
         </div>
     );

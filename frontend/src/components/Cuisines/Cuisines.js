@@ -9,7 +9,7 @@ const Cuisines = () => {
                 return (
                     <li>
                         <Link
-                            to={`/cuisines/${c}`} // key?
+                            to={`/cuisines/${c}`} key={c}
                         >{`${cuisines[c]} cuisine`}</Link>
                     </li>
                 );
