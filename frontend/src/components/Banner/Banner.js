@@ -1,4 +1,4 @@
-import food from './Abdoogh-khiar-1.jpg';
+import food from './banner_o.jpg';
 import './Banner.css';
 
 const Banner = () => {
