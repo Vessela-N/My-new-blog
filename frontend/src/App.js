@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Cuisines from './components/Cuisines';
 import Create from './components/Create';
 import Login from './components/Login/Login';
+import Banner from './components/Banner/Banner';
 
 function App() {
     return (

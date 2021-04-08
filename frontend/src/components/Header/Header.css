@@ -1,11 +1,16 @@
 header {
     background-color: turquoise;
     text-align: center;
-    padding: 25px;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
 }
 
 header h1 {
     color: rgb(27, 27, 65);
-    font-family: Merienda One;
+    font-family: Kaushan Script;
     font-size: 35px;
 }

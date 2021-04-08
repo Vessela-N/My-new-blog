@@ -4,7 +4,7 @@ import cuisines from '../../common/cuisines';
 
 const Cuisines = () => {
     return (
-        <ul className='cuisines'>
+        <ul className='cuisines-menu'>
             {Object.keys(cuisines).map((c) => {
                 return (
                     <li>
