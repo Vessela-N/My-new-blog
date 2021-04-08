@@ -3,10 +3,11 @@ nav.navbar {
     padding:15px;
     display: flex;
     align-items: center;
-    background-color: #fff5ea;
+    background-color: white;
     position: sticky;
     top: 90px;
     z-index: 1;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .links {
@@ -16,8 +17,7 @@ nav.navbar {
 .navbar a {
     margin-left: 36px;
     text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
     padding: 6px;
 }
 .navbar a:hover {

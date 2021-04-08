@@ -5,14 +5,16 @@
 #recipes-title {
     text-align: center;
     padding: 20px;
+    margin: 15px;
+    font-style: italic;
 }
 
 .recipe-list-cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 30px;
-    row-gap: 60px;
-    margin: 20px;
+    row-gap: 30px;
+    margin: 50px 30px;
 }
 
 .recipe-preview {
@@ -21,7 +23,11 @@
     position: relative;
     text-align: center;
     padding: 15px 15px 15px 15px;
-    border: 2px solid burlywood;
+    border: 1px solid rgb(238, 238, 238);
+}
+
+.recipe-preview:hover {
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-list a {
@@ -29,7 +35,7 @@
 }
 
 .recipe-preview img {
-    width: 410px;
-    height: 410px;
+    width: 415px;
+    height: 415px;
     object-fit: cover;
 }

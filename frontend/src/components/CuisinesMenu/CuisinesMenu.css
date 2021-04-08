@@ -1,0 +1,27 @@
+.cuisines-menu {
+    width: 20%;
+    float: right;
+    list-style-type: none;
+    margin: 40px auto;
+    padding: 0;
+}
+
+.cuisines-menu li {
+    padding: 15px;
+    margin: 45px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cuisines-menu li:hover {
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cuisines-menu a:hover {
+    color: #e92243;
+}
+
+.cuisines-menu a {
+    text-decoration: none;
+}

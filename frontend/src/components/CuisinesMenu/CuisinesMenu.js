@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import './Cuisines.css';
+import './CuisinesMenu.css';
 import cuisines from '../../common/cuisines';
+
 
 const Cuisines = () => {
     return (
