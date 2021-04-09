@@ -12,9 +12,9 @@ const RecipeList = ({ recipes, title }) => {
                     <div className='recipe-preview' key={recipe._id}>
                         <Link to={`/recipes/${recipe._id}`}>
                             <img src={recipe.imageUrl} />
-                            <h3>{recipe.title}</h3>
+                            <h2>{recipe.title}</h2>
+                            <span className='recipe-category'>{recipe.category}</span>
                             <p>{`Recipe by ${recipe.userName}`}</p>
-                            <p>{recipe.category}</p>
                         </Link>
                     </div>
                 ))}

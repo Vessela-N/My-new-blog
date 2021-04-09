@@ -1,4 +1,4 @@
-import food from './web_header2.jpg';
+import food from './bann1.jpg';
 import './Banner.css';
 
 const Banner = () => {
