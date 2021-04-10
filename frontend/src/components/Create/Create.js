@@ -88,6 +88,7 @@ const Create = ({ history }) => {
 
                 <label htmlFor='category'>Category</label>
                 <select name='category' id='category'>
+
                     <option value='soup'>Soups</option>
                     <option value='salad'>Salads</option>
                     <option value='appetizer'>Appetizers & Snacks</option>
@@ -115,22 +116,22 @@ const Create = ({ history }) => {
 
                 <label htmlFor='country'>Country</label>
                 <select name='country' id='country'>
-                    <option value='lebanon'>Lebanon</option>
-                    <option value='turkey'>Turkey</option>
-                    <option value='cyprus'>Cyprus</option>
-                    <option value='egypt'>Egypt</option>
-                    <option value='syria'>Syria</option>
-                    <option value='palestine'>Palestine</option>
-                    <option value='jordan'>Jordan</option>
-                    <option value='iraq'>Iraq</option>
-                    <option value='kuwait'>Kuwait</option>
-                    <option value='iran'>Iran</option>
-                    <option value='qatar'>Qatar</option>
-                    <option value='bahrein'>Bahrein</option>
-                    <option value='oman'>Oman</option>
-                    <option value='yemen'>Yemen</option>
-                    <option value='saudi-arabia'>Saudi Arabia</option>
-                    <option value='uae'>United Arab Emirates</option>
+                    <option value='Lebanon'>Lebanon</option>
+                    <option value='Turkey'>Turkey</option>
+                    <option value='Cyprus'>Cyprus</option>
+                    <option value='Egypt'>Egypt</option>
+                    <option value='Syria'>Syria</option>
+                    <option value='Palestine'>Palestine</option>
+                    <option value='Jordan'>Jordan</option>
+                    <option value='Iraq'>Iraq</option>
+                    <option value='Kuwait'>Kuwait</option>
+                    <option value='Iran'>Iran</option>
+                    <option value='Qatar'>Qatar</option>
+                    <option value='Bahrein'>Bahrein</option>
+                    <option value='Oman'>Oman</option>
+                    <option value='Yemen'>Yemen</option>
+                    <option value='Saudi Arabia'>Saudi Arabia</option>
+                    <option value='United Arab Emirates'>United Arab Emirates</option>
                 </select>
 
                 <button value='Create'>Create</button>

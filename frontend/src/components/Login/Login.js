@@ -43,7 +43,7 @@ const Login = ({ history }) => {
                     name='password'
                     placeholder='password'
                 />
-                \<button>Login</button>
+                <button>Login</button>
             </form>
         </div>
     );

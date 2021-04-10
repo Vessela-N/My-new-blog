@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import './CuisinesMenu.css';
+import styles from './CuisinesMenu.module.css';
 import cuisines from '../../common/cuisines';
 
 
 const Cuisines = () => {
     return (
-        <ul className='cuisines-menu'>
+        <ul className={styles.cuisinesMenu}>
             {Object.keys(cuisines).map((c) => {
                 return (
                     <li>

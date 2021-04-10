@@ -1,4 +1,4 @@
-import useFetch from '../../useFetch';
+import useFetch from '../../common/useFetch';
 import RecipeList from '../RecipeList/RecipeList';
 import './Home.css';
 import { useParams } from 'react-router-dom';
@@ -21,7 +21,12 @@ const Home = () => {
                 {error && <div>{error}</div>}
                 {isPending && <div>Loading...</div>}
                 {recipes && (
-                    <RecipeList recipes={recipes} title={cuisine ? `All ${cuisine} recipes` : `All recipes`} />
+                    <RecipeList
+                        recipes={recipes}
+                        title={
+                            cuisine ? `All ${cuisine} recipes` : `All recipes`
+                        }
+                    />
                 )}
             </div>
         </main>

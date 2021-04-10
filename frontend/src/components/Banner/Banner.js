@@ -4,7 +4,7 @@ import './Banner.css';
 const Banner = () => {
     return ( 
         <section className="banner">
-            <img src={food} alt="persian food banner"/>
+            <img src={food} alt="pomegranates"/>
         </section>
      );
 }

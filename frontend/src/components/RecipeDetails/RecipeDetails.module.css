@@ -1,0 +1,26 @@
+.recipeDetails {
+    position: relative;
+    top: 180px;
+    text-align: center;
+}
+
+.recipeDetails h1{
+    font-family: Kaushan Script;
+    font-size: 30px;
+}
+
+.smallerTitle {
+    font-size: 22px;
+    font-style: italic;
+}
+
+.smallerTitle::first-letter {
+    text-transform: uppercase;
+}
+
+.recipeDetails img {
+    width: 405px;
+    height: 405px;
+    object-fit: cover;
+    border-radius: 7px;
+}

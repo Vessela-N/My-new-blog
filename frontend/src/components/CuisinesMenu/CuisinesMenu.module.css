@@ -1,4 +1,4 @@
-.cuisines-menu {
+.cuisinesMenu {
     width: 20%;
     float: right;
     list-style-type: none;
@@ -6,7 +6,7 @@
     padding: 0;
 }
 
-.cuisines-menu li {
+.cuisinesMenu li {
     padding: 15px;
     margin: 30px;
     text-align: center;
@@ -14,15 +14,16 @@
     font-weight: bold;
 }
 
-.cuisines-menu li:hover {
+.cuisinesMenu li:hover {
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 30%);
 }
 
-.cuisines-menu a:hover {
+.cuisinesMenu a:hover {
     color: #e92243;
 }
 
-.cuisines-menu a {
+.cuisinesMenu a {
+    
     font-family: Kaushan Script;
     text-decoration: none;
 }
