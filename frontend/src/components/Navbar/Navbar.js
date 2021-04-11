@@ -1,6 +1,5 @@
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import categories from '../../common/categories';
 
 const Navbar = () => {
     return (

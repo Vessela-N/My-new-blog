@@ -1,4 +1,5 @@
 import decode from 'jwt-decode';
+import styles from './Login.module.css';
 
 const Login = ({ history }) => {
     const handleSubmit = (e) => {
@@ -26,8 +27,8 @@ const Login = ({ history }) => {
     };
 
     return (
-        <div className='login'>
-            <h1>Login</h1>
+        <div className={styles.login}>
+            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='userName'>User</label>
                 <input

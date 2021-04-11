@@ -1,0 +1,37 @@
+.login {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 160px;
+  }
+  .login label {
+    text-align: left;
+    display: block;
+    font-size: 20px;
+  }
+  .login h2 {
+    font-size: 25px;
+    color: #f1356d;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  .login input {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+    font-size: 16px;
+  }
+   .login button {
+    background: #f1356d;
+    color: #fff;
+    border: 0;
+    padding: 12px;
+    margin: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }

@@ -1,9 +1,9 @@
-import styles from './RecipeDetails.module.css';
+import styles from './Recipe.module.css';
 import Author from '../Author/Author';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../common/useFetch';
 
-const RecipeDetails = () => {
+const Recipe = () => {
     const { id } = useParams();
     const { data: recipe, isPending, error } = useFetch(
         'http://localhost:3001/recipe/' + id
@@ -27,17 +27,23 @@ const RecipeDetails = () => {
                     <p className={styles.description}>{recipe.description}</p>
 
                     <div className={styles.clear}>
-                    <Author userName={recipe.userName} />
+                        <Author userName={recipe.userName} />
 
-                        <h3 className={styles.recipeTitles}>Ingredients</h3>
-                        <ul className={styles.ingredients}>
-                            {recipe.ingredients.map((d, i) => {
-                                return <li key={i}>{d}</li>;
-                            })}
-                        </ul>
+                        <div className={styles.ingredientsDiv}>
+                            <h3 className={styles.recipeTitles}>Ingredients</h3>
+                            <ul className={styles.ingredients}>
+                                {recipe.ingredients.map((d, i) => {
+                                    return <li key={i}>{d}</li>;
+                                })}
+                            </ul>
+                        </div>
 
-                        <h3 className={styles.recipeTitles}>Directions</h3>
-                        <p className={styles.directions}>{recipe.directions}</p>
+                        <div className={styles.directionsDiv}>
+                            <h3 className={styles.recipeTitles}>Directions</h3>
+                            <p className={styles.directions}>
+                                {recipe.directions}
+                            </p>
+                        </div>
                     </div>
                 </article>
             )}
@@ -45,4 +51,4 @@ const RecipeDetails = () => {
     );
 };
 
-export default RecipeDetails;
+export default Recipe;
