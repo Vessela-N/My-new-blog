@@ -1,0 +1,12 @@
+.author {
+    font-size: 18px;
+    text-align: left;
+    padding: 7px 0;
+}
+
+.userName {
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #f1356d;
+}

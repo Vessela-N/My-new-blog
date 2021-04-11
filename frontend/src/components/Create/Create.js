@@ -1,4 +1,5 @@
 import './Create.css';
+import categories from '../../common/categories';
 import useToken from '../../common/useToken';
 import { useEffect } from 'react';
 
@@ -88,16 +89,24 @@ const Create = ({ history }) => {
 
                 <label htmlFor='category'>Category</label>
                 <select name='category' id='category'>
-
+                    {/* <ul name='category'>
+                        {Object.keys(categories).map((c) => {
+                            return (
+                                <li key={c}>
+                                    <option value={c}>{categories[c]}</option>
+                                </li>
+                            );
+                        })} */}
                     <option value='soup'>Soups</option>
                     <option value='salad'>Salads</option>
                     <option value='appetizer'>Appetizers & Snacks</option>
                     <option value='bread'>Bread & Pita</option>
                     <option value='breakfast'>Breakfast & Brunch</option>
-                    <option value='main'>Main Dishes</option>
-                    <option value='side'>Side Dishes</option>
+                    <option value='main dish'>Main Dishes</option>
+                    <option value='side dish'>Side Dishes</option>
                     <option value='dessert'>Desserts & Sweets</option>
-                    <option value='drinks'>Drinks</option>
+                    <option value='drink'>Drinks</option>
+                    {/* </ul> */}
                 </select>
 
                 <label htmlFor='cuisine'>Cuisine</label>
@@ -131,7 +140,9 @@ const Create = ({ history }) => {
                     <option value='Oman'>Oman</option>
                     <option value='Yemen'>Yemen</option>
                     <option value='Saudi Arabia'>Saudi Arabia</option>
-                    <option value='United Arab Emirates'>United Arab Emirates</option>
+                    <option value='United Arab Emirates'>
+                        United Arab Emirates
+                    </option>
                 </select>
 
                 <button value='Create'>Create</button>

@@ -2,6 +2,8 @@
     position: relative;
     top: 180px;
     text-align: center;
+    margin: auto;
+    width: 70%;
 }
 
 .recipeDetails h1{
@@ -19,8 +21,16 @@
 }
 
 .recipeDetails img {
+    float: left;
     width: 405px;
     height: 405px;
     object-fit: cover;
     border-radius: 7px;
+}
+.clear {
+    clear: left;
+}
+
+.ingredients li {
+    list-style-type: none;
 }

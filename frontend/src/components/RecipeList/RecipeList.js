@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './RecipeList.css';
+import Author from '../Author/Author';
 
 const RecipeList = ({ recipes, title }) => {
     // const recipes = props.recipes;
@@ -16,7 +17,7 @@ const RecipeList = ({ recipes, title }) => {
                             <span className='recipe-category'>
                                 {recipe.category}
                             </span>
-                            <p>{`Recipe by ${recipe.userName}`}</p>
+                            <Author userName={recipe.userName} />
                         </div>
                     </Link>
                 ))}
