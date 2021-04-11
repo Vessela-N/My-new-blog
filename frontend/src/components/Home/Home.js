@@ -4,13 +4,15 @@ import './Home.css';
 import { useParams } from 'react-router-dom';
 import Cuisines from '../CuisinesMenu/CuisinesMenu';
 import Banner from '../Banner/Banner';
+import categories from '../../common/categories';
 
 const Home = () => {
     const { cuisine, category } = useParams();
     const cuisineUrl = cuisine === undefined ? '' : `?cuisine=${cuisine}`;
+    const categoryUrl = category === undefined ? '' : `?category=${category}`;
 
     const { data: recipes, isPending, error } = useFetch(
-        `http://localhost:3001/recipe${cuisineUrl}`
+        `http://localhost:3001/recipe${cuisineUrl || categoryUrl}`
     );
 
     return (
@@ -24,7 +26,9 @@ const Home = () => {
                     <RecipeList
                         recipes={recipes}
                         title={
-                            cuisine ? `All ${cuisine} recipes` : `All recipes`
+                            cuisine ? `All ${cuisine} recipes` 
+                            : category ? `${categories[category]}`
+                            : `All recipes`
                         }
                     />
                 )}

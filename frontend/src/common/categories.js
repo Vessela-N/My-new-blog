@@ -9,3 +9,5 @@ const categories = {
     dessert: "Desserts & Sweets",
     drink: "Drinks"
 }
+
+export default categories;

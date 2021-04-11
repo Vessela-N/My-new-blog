@@ -6,8 +6,11 @@
     text-align: center;
     padding: 15px 0;
     margin: 15px;
-    /* font-style: italic; */
     font-family: Kaushan Script;
+}
+
+#recipe-title::first-letter {
+    text-transform: uppercase;
 }
 
 .recipe-list-cards {
