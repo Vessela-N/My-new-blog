@@ -7,7 +7,7 @@ const RecipeList = ({ recipes, title }) => {
     // const title = props.title;
     return (
         <div className='recipe-list'>
-            <h1 id='recipes-title'>{title}</h1>
+            <h2 id='recipes-title'>{title}</h2>
             <div className='recipe-list-cards'>
                 {recipes.map((recipe) => (
                     <Link to={`/recipe/${recipe._id}`}>

@@ -15,6 +15,12 @@ const Home = () => {
         `http://localhost:3001/recipe${cuisineUrl || categoryUrl}`
     );
 
+    const getTitle = (cuisine, category) => {
+        if (cuisine) return `All ${cuisine} recipes`;
+        if (category) return `${categories[category]}`;
+        return 'All recipes';
+    };
+
     return (
         <main className='home'>
             <Banner />
@@ -25,11 +31,7 @@ const Home = () => {
                 {recipes && (
                     <RecipeList
                         recipes={recipes}
-                        title={
-                            cuisine ? `All ${cuisine} recipes` 
-                            : category ? `${categories[category]}`
-                            : `All recipes`
-                        }
+                        title={getTitle(cuisine, category)}
                     />
                 )}
             </div>

@@ -36,7 +36,7 @@ const Create = ({ history }) => {
                 title: title.value,
                 servings: servings.value,
                 description: description.value,
-                ingredients: ingredients.value,
+                ingredients: Array.from(ingredients.value),
                 directions: directions.value,
                 imageUrl: imageUrl.value,
                 category: category.value,

@@ -1,4 +1,4 @@
-import food from './bann1.jpg';
+import food from './Nasr_ol_Molk_mosque_vault_ceiling_3.jpg';
 import './Banner.css';
 
 const Banner = () => {

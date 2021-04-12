@@ -4,12 +4,15 @@ import Home from './components/Home';
 import Create from './components/Create';
 import Login from './components/Login/Login';
 import Recipe from './components/Recipe/Recipe';
+import useToken from './common/useToken';
 
 function App() {
+    const { token } = useToken();
+
     return (
         <Router>
             <div className='App'>
-                <Navbar />
+                <Navbar isLoggedIn={Boolean(token)}/>
                 <div className='content'>
                     <Switch>
                         <Route exact path='/' component={Home}/>
