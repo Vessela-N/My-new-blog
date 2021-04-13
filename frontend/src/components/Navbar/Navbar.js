@@ -24,7 +24,7 @@ const Navbar = ({isLoggedIn}) => {
                 </div>
                 <div className='links'>
                     <Link to='/'>All recipes</Link>
-                    <Link to=''>Dish type</Link>
+                    <Link to='/dish'>Dish type</Link>
                     <Link to='/recipe/add'>Add your recipe</Link>
                     {loggedIn ? (
                         <Link onClick={handleLogout}>Logout</Link>

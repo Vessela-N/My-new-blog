@@ -35,14 +35,14 @@ const Login = ({ history }) => {
                     type='text'
                     id='userName'
                     name='userName'
-                    placeholder='your username'
+                    placeholder='Your username'
                 />
                 <label htmlFor='password'>Password</label>
                 <input
                     type='password'
                     id='password'
                     name='password'
-                    placeholder='password'
+                    placeholder='Your password'
                 />
                 <button>Login</button>
             </form>

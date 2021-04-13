@@ -59,6 +59,18 @@ const Recipe = () => {
                         >
                             {recipe.category}
                         </Link>
+                        <Link
+                            to={`/countries/${recipe.country}`}
+                            className={styles.categoryLink}
+                        >
+                            {recipe.country}
+                        </Link>
+                        <button className={styles.btn}>
+                            <Link to={'/recipe/edit'}>Edit</Link>
+                        </button>
+                        <button className={styles.btn}>
+                            Delete
+                        </button>
                     </div>
                 </article>
             )}

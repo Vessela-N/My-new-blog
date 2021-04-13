@@ -145,7 +145,7 @@ const Create = ({ history }) => {
                     </option>
                 </select>
 
-                <button value='Create'>Create</button>
+                <button>Create</button>
             </form>
         </div>
     );

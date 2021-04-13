@@ -3,14 +3,14 @@ import styles from './CuisinesMenu.module.css';
 import cuisines from '../../common/cuisines';
 
 
-const Cuisines = () => {
+const CuisinesMenu = () => {
     return (
         <ul className={styles.cuisinesMenu}>
             {Object.keys(cuisines).map((c) => {
                 return (
-                    <li>
+                    <li key={c}>
                         <Link
-                            to={`/cuisines/${c}`} key={c}
+                            to={`/cuisines/${c}`} 
                         >{`${cuisines[c]} cuisine`}</Link>
                     </li>
                 );
@@ -19,4 +19,4 @@ const Cuisines = () => {
     );
 };
 
-export default Cuisines;
+export default CuisinesMenu;
