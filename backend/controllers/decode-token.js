@@ -6,8 +6,11 @@ function decodeToken(req, res, next) {
     if (authorization === undefined) {
         return next();
     }
-    
-    const secret = process.env.SECRET;
+
+    // const secret = process.env.SECRET;
+    // for educational purposes the secret is set.
+    const secret = 'vessela and lyubo secret'
+
     const token = authorization.split(' ')[1];
     console.log({authorization, token});
 

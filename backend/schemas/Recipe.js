@@ -19,7 +19,7 @@ function recipe(mongoose) {
                 required: true,
             },
             directions: {
-                type: String,
+                type: Array,
                 required: true,
             },
             category: {
