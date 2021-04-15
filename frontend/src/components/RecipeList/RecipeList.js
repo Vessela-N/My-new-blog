@@ -10,8 +10,8 @@ const RecipeList = ({ recipes, title }) => {
             <h2 id='recipes-title'>{title}</h2>
             <div className='recipe-list-cards'>
                 {recipes.map((recipe) => (
-                    <Link to={`/recipe/${recipe._id}`}>
-                        <div className='recipe-preview' key={recipe._id}>
+                    <Link key={recipe._id} to={`/recipe/${recipe._id}`}>
+                        <div className='recipe-preview'>
                             <img src={recipe.imageUrl} />
                             <h2>{recipe.title}</h2>
                             <span className='recipe-category'>
