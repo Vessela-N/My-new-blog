@@ -1,16 +1,16 @@
 import './Navbar.css';
-import { Link,  useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { StateContext } from '../../state/context';
+import DishType from '../DishType/DishType';
 
-const Navbar = ({isLoggedIn}) => {
-   const [loggedIn, setLoggedIn] = useState(isLoggedIn);
+const Navbar = () => {
+    const { tokenState, setToken } = useContext(StateContext);
 
-    console.log({isLoggedIn, loggedIn});
     const history = useHistory();
     const handleLogout = (e) => {
         e.preventDefault();
-        localStorage.clear();
-        setLoggedIn(false);
+        setToken();
         history.push('/');
     };
 
@@ -25,9 +25,12 @@ const Navbar = ({isLoggedIn}) => {
                 <div className='links'>
                     <Link to='/'>All recipes</Link>
                     <Link to='/dish'>Dish type</Link>
+                    <DishType />
                     <Link to='/recipe/add'>Add your recipe</Link>
-                    {loggedIn ? (
-                        <Link onClick={handleLogout}>Logout</Link>
+                    {tokenState.token ? (
+                        <Link onClick={handleLogout} to='/'>
+                            Logout
+                        </Link>
                     ) : (
                         <>
                             <Link to='/register'>Register</Link>

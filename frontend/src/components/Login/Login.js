@@ -1,29 +1,17 @@
-import decode from 'jwt-decode';
 import styles from './Login.module.css';
+import { useState } from 'react';
+import useAuthAsyncActions from '../../state/asyncActions/auth';
 
 const Login = ({ history }) => {
+    const [error, setError] = useState('');
+    const { login } = useAuthAsyncActions();
     const handleSubmit = (e) => {
         e.preventDefault();
         const { userName, password } = e.target;
 
-        fetch('http://localhost:3001/auth', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                userName: userName.value,
-                password: password.value,
-            }),
-        })
-            .then((result) => result.json())
-            .then((result) => {
-                const decodedToken = decode(result.token);
-                localStorage.setItem('token', result.token);
-                localStorage.setItem(
-                    'decodedToken',
-                    JSON.stringify(decodedToken)
-                );
-                history.push('/');
-            });
+        login(userName.value, password.value)
+            .then(() => history.push('/'))
+            .catch((err) => setError(err.message));
     };
 
     return (
@@ -46,6 +34,7 @@ const Login = ({ history }) => {
                 />
                 <button>Login</button>
             </form>
+            {error && <div>error</div>}
         </div>
     );
 };

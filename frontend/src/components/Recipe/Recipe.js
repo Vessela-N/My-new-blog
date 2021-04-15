@@ -2,13 +2,30 @@ import styles from './Recipe.module.css';
 import Author from '../Author/Author';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import useFetch from '../../common/useFetch';
+import { useContext, useEffect, useMemo } from 'react';
+import { StateContext } from '../../state/context';
+import useRecipeAsyncActions from '../../state/asyncActions/recipe';
 
-const Recipe = () => {
+const Recipe = ({ history }) => {
+    const { loadRecipes, removeRecipe } = useRecipeAsyncActions();
     const { id } = useParams();
-    const { data: recipe, isPending, error } = useFetch(
-        'http://localhost:3001/recipe/' + id
-    );
+
+    const { recipe: recipeState, tokenState } = useContext(StateContext);
+    const userName = tokenState?.decodedToken?.userName;
+    const { recipes, isPending, error } = recipeState;
+
+    const recipe = useMemo(() => {
+        return recipes.find((r) => r._id === id);
+    }, [recipes]);
+
+    useEffect(() => {
+        if (recipe === undefined) loadRecipes();
+    }, [recipe === undefined]);
+    const handleDelete = (e) => {
+        e.preventDefault();
+        removeRecipe(id).then(() => history.push('/'));
+    };
+
     return (
         <div className={styles.recipeDetails}>
             {isPending && <div>Loading...</div>}
@@ -65,12 +82,21 @@ const Recipe = () => {
                         >
                             {recipe.country}
                         </Link>
-                        <button className={styles.btn}>
-                            <Link to={'/recipe/edit'}>Edit</Link>
-                        </button>
-                        <button className={styles.btn}>
-                            Delete
-                        </button>
+                        {userName === recipe.userName && (
+                            <>
+                                <button className={styles.btn}>
+                                    <Link to={`/recipe/edit/${recipe._id}`}>
+                                        Edit
+                                    </Link>
+                                </button>
+                                <button
+                                    className={styles.btn}
+                                    onClick={handleDelete}
+                                >
+                                    Delete
+                                </button>
+                            </>
+                        )}
                     </div>
                 </article>
             )}
