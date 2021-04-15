@@ -60,9 +60,11 @@ const Recipe = ({ history }) => {
                         </p>
                         <div className={styles.directionsDiv}>
                             <h3 className={styles.recipeTitles}>Directions</h3>
-                            <p className={styles.directions}>
-                                {recipe.directions}
-                            </p>
+                            <ol className={styles.directions}>
+                                {recipe.directions.map((d, i) => {
+                                    return <li key={i}>{d}</li>;
+                                })}
+                            </ol>
                         </div>
                         <Link
                             to={`/cuisines/${recipe.cuisine}`}

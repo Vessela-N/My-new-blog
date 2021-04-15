@@ -25,7 +25,6 @@ header {
 .navbar {
     padding:10px;
     display: flex;
-    align-items: center;
     background-color: turquoise;
     z-index: 1;
     position: fixed;
@@ -35,7 +34,7 @@ header {
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 30%);
 }
 
-.navbar .links {
+.navbar .links, span {
     margin: auto;
 }
 
@@ -44,7 +43,7 @@ header {
     margin-left: 36px;
     text-decoration: none;
     font-size: 22px;
-    padding: 6px;
+    /* padding: 6px; */
 }
 .navbar a:hover {
     color: #e92243;
