@@ -10,3 +10,7 @@
     letter-spacing: 1px;
     color: #f1356d;
 }
+
+.author a {
+    text-decoration: none;
+}

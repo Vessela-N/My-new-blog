@@ -9,10 +9,10 @@ function decodeToken(req, res, next) {
 
     // const secret = process.env.SECRET;
     // for educational purposes the secret is set.
-    const secret = 'vessela and lyubo secret'
+    const secret = 'vessela and lyubo secret';
 
     const token = authorization.split(' ')[1];
-    console.log({authorization, token});
+    console.log({ authorization, token });
 
     try {
         const decoded = jwt.verify(token, secret);

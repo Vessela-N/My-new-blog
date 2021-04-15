@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import decode from 'jwt-decode';
 
 export default function useToken() {

@@ -5,7 +5,8 @@ import md5 from 'md5';
 export function login(req, res) {
     const { userName, password } = req.body;
     const passHash = md5(password);
-    const secret = process.env.SECRET;
+    // const secret = process.env.SECRET;
+    const secret = 'vessela and lyubo secret';
 
     getById(userName)
         .then((result) => {

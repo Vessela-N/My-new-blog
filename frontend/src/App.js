@@ -20,6 +20,7 @@ function App() {
                         <Route path='/cuisines/:cuisine' component={Home}/>
                         <Route path='/categories/:category' component={Home}/>
                         <Route path='/countries/:country' component={Home}/>
+                        <Route path='/users/:username' component={Home}/>
                         <Route exact path='/recipe/add' component={Form}/>
                         <Route exact path='/recipe/edit/:id' component={Form}/>
                         <Route path='/recipe/:id' component={Recipe}/>
