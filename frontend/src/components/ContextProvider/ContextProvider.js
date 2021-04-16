@@ -1,6 +1,6 @@
 import { StateContext } from '../../state/context';
 import { useReducer, useMemo } from 'react';
-import recipeReducer from '../../state/reducers/recipe';
+import recipeReducer from '../../state/reducers/recipeReducer';
 import useToken from '../../common/useToken';
 
 const initRecipe = {

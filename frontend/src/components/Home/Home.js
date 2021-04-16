@@ -27,14 +27,9 @@ const Home = () => {
         return allRecipes;
     }, [allRecipes, cuisine, category, country, username]);
 
-    console.log({ allRecipes });
     useEffect(() => {
         loadRecipes();
     }, []);
-
-    // const { data: recipes, isPending, error } = useFetch(
-    //     `http://localhost:3001/recipe${cuisineUrl || categoryUrl || countryUrl}`
-    // );
 
     const getTitle = (cuisine, category, country, username) => {
         if (cuisine) return `All ${cuisine} recipes`;
@@ -49,6 +44,7 @@ const Home = () => {
             <Banner />
             <CuisinesMenu />
             <div className='home-main'>
+                {/* {console.log(recipes)} */}
                 {error && <div>{error}</div>}
                 {isPending && recipes.length === 0 && <div>Loading...</div>}
                 {recipes && (

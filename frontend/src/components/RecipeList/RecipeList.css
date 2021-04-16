@@ -2,6 +2,11 @@
     width: 80%;
 }
 
+.recipe-list h3 {
+    text-align: center;
+    font-style: italic;
+}
+
 #recipes-title {
     text-align: center;
     padding: 5px 0;

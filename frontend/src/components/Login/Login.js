@@ -31,7 +31,6 @@ const Login = ({ history }) => {
         e.preventDefault();
         const { userName, password } = e.target;
         
-
         const errors = validations(validationFns, {userName: userName.value, password: password.value});
         // console.log({ errors });
         setValidationErrors(errors);

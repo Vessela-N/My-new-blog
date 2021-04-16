@@ -44,10 +44,6 @@ const Register = ({ history }) => {
         [validationErrors]
     );
 
-    // const errors_ = {
-    // 	email: ['Wrong email'],
-    // 	fullName: ['Can not be empty', 'Should be at least two names']
-    // }
     const handleSubmit = (e) => {
         e.preventDefault();
         const { fullName, email, userName, password, confirm } = e.target;
@@ -116,7 +112,7 @@ const Register = ({ history }) => {
                 <FormError errors={errorsForField('confirm')} />
                 <button>Register</button>
             </form>
-            {error && <div>error</div>}
+            {error && <div>{error}</div>}
         </div>
     );
 };

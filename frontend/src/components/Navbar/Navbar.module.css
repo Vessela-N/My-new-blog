@@ -34,16 +34,17 @@ header {
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 30%);
 }
 
-.navbar .links, span {
+.navbar .links {
     margin: auto;
+    float: left;
 }
 
 .navbar a {
-    float: left;
-    margin-left: 36px;
+    clear: left;
+    margin-left: 30px;
     text-decoration: none;
     font-size: 22px;
-    /* padding: 6px; */
+    padding: 6px;
 }
 .navbar a:hover {
     color: #e92243;

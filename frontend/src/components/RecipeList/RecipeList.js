@@ -8,6 +8,7 @@ const RecipeList = ({ recipes, title }) => {
     return (
         <div className='recipe-list'>
             <h2 id='recipes-title'>{title}</h2>
+            <h3>{recipes.length === 0 ? 'There is no recipes in this category yet.' : ''}</h3>
             <div className='recipe-list-cards'>
                 {recipes.map((recipe) => (
                     <Link key={recipe._id} to={`/recipe/${recipe._id}`}>
