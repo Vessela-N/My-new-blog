@@ -39,7 +39,8 @@ const Recipe = ({ history }) => {
 
                     <h3 className={styles.smallerTitle}>
                         <span>{recipe.cuisine}</span>
-                        {` recipe from ${recipe.country}`}
+                        {` recipe from ${recipe.country} `}
+                        {recipe.flag && <img className={styles.flag} src={recipe.flag} alt={recipe.country}/>}
                     </h3>
 
                     <div className={styles.left}>

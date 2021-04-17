@@ -42,7 +42,10 @@ function recipe(mongoose) {
             userName: {
                 type: String,
                 required: true,
-            }
+            },
+            flag: {
+                type: String,
+            },
         },
         { timestamps: true }
     );

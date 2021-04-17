@@ -20,6 +20,7 @@ const validationFns = {
 };
 
 const Form = ({ history }) => {
+    const [flag, setFlag] = useState('');
     const { addRecipe, updateRecipe } = useRecipeAsyncActions();
     const [error, setError] = useState('');
     const [validationErrors, setValidationErrors] = useState({});
@@ -79,7 +80,10 @@ const Form = ({ history }) => {
             category: category.value,
             cuisine: cuisine.value,
             country: country.value,
+            flag,
         };
+
+        console.log({ newRecipe });
 
         const errors = validations(validationFns, newRecipe);
         // console.log({ errors });
@@ -100,6 +104,17 @@ const Form = ({ history }) => {
                     .catch((err) => setError(err.message));
             }
         }
+    };
+
+    const onCountryChange = (e) => {
+        const country = e.target.value;
+        fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+            .then((res) => res.json())
+            .then((result) => {
+                const [c] = result;
+                setFlag(c.flag);
+            })
+            .catch((err) => setError(err.message));
     };
 
     return (
@@ -189,6 +204,7 @@ const Form = ({ history }) => {
                     name='country'
                     id='country'
                     defaultValue={field('country')}
+                    onChange={onCountryChange}
                 >
                     {countries.map((c) => (
                         <option key={c} value={c}>
