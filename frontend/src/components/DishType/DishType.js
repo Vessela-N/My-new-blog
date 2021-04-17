@@ -10,7 +10,7 @@ const DishType = () => {
             <span className={styles.dropbtn}>Dish Type</span>
             <div className={styles.dropdownContent}>
                 {dishTypes.map((c) => (
-                    <Link to={`/categories/${c}`} className={styles.links}>{categories[c]}</Link>
+                    <Link to={`/categories/${c}`} className={styles.links} key={c}>{categories[c]}</Link>
                 ))}
             </div>
         </div>

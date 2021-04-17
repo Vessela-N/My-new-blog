@@ -14,4 +14,9 @@ const validations = (errorFns, all) => {
     }, {}); // object -> {email: ["invalid email"]}
 };
 
-export { editState, validations };
+const required = (field) => (val) => {
+    if (val.length === 0) return `${field} is required!`;
+    return true;
+};
+
+export { editState, validations, required };

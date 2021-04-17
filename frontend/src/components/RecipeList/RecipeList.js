@@ -13,7 +13,7 @@ const RecipeList = ({ recipes, title }) => {
                 {recipes.map((recipe) => (
                     <Link key={recipe._id} to={`/recipe/${recipe._id}`}>
                         <div className='recipe-preview'>
-                            <img src={recipe.imageUrl} />
+                            <img src={recipe.imageUrl} alt={recipe.title}/>
                             <h2>{recipe.title}</h2>
                             <span className='recipe-category'>
                                 {recipe.category}

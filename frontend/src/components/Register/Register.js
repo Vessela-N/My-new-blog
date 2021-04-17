@@ -2,7 +2,7 @@ import FormError from '../FormError/FormError';
 import styles from './Register.module.css';
 import { useCallback, useState } from 'react';
 import useAuthAsyncActions from '../../state/asyncActions/auth';
-import { validations } from '../../common/helpers';
+import { validations, required } from '../../common/helpers';
 import validator from 'validator';
 
 const confirm = (val, all) => {
@@ -10,10 +10,6 @@ const confirm = (val, all) => {
     if (all.password !== all.confirm)
         return 'Both passwords should be the same!';
 
-    return true;
-};
-const required = (field) => (val) => {
-    if (val.length === 0) return `${field} is required!`;
     return true;
 };
 
@@ -37,13 +33,6 @@ const Register = ({ history }) => {
 
     const { register } = useAuthAsyncActions();
 
-    const errorsForField = useCallback(
-        (field) => {
-            return validationErrors[field] || [];
-        },
-        [validationErrors]
-    );
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const { fullName, email, userName, password, confirm } = e.target;
@@ -57,7 +46,7 @@ const Register = ({ history }) => {
         };
 
         const errors = validations(validationFns, userInfo);
-        console.log({ errors });
+        // console.log({ errors });
         setValidationErrors(errors);
 
         Object.keys(errors).length === 0 &&
@@ -77,7 +66,7 @@ const Register = ({ history }) => {
                     name='fullName'
                     placeholder='Full name'
                 />
-                <FormError errors={errorsForField('fullName')} />
+                <FormError errors={validationErrors['fullName']} />
                 <label htmlFor='email'>Email</label>
                 <input
                     type='email'
@@ -85,7 +74,7 @@ const Register = ({ history }) => {
                     name='email'
                     placeholder='Email'
                 />
-                <FormError errors={errorsForField('email')} />
+                <FormError errors={validationErrors['email']} />
                 <label htmlFor='userName'>User</label>
                 <input
                     type='text'
@@ -93,7 +82,7 @@ const Register = ({ history }) => {
                     name='userName'
                     placeholder='Your username'
                 />
-                <FormError errors={errorsForField('userName')} />
+                <FormError errors={validationErrors['userName']} />
                 <label htmlFor='password'>Password</label>
                 <input
                     type='password'
@@ -101,7 +90,7 @@ const Register = ({ history }) => {
                     name='password'
                     placeholder='Your password'
                 />
-                <FormError errors={errorsForField('password')} />
+                <FormError errors={validationErrors['password']} />
                 <label htmlFor='confirm'>Confirm Password</label>
                 <input
                     type='password'
@@ -109,7 +98,7 @@ const Register = ({ history }) => {
                     name='confirm'
                     placeholder='Confirm password'
                 />
-                <FormError errors={errorsForField('confirm')} />
+                <FormError errors={validationErrors['confirm']} />
                 <button>Register</button>
             </form>
             {error && <div>{error}</div>}

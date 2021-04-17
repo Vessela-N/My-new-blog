@@ -8,14 +8,17 @@ const useAuthAsyncActions = () => {
     const { login: loginService, register: registerService } = useService();
 
     const login = (userName, password) => {
-        return loginService(userName, password).then((res) => {
+        return loginService(userName, password)
+        .then((res) => {
             console.log({ res });
             setToken(res.token);
         });
     };
 
     const register = (userInfo) => {
-        return registerService(userInfo).then((res) => {
+        return registerService(userInfo)
+        
+        .then((res) => {
             console.log({ res });
         });
     };

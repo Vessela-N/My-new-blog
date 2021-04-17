@@ -10,13 +10,14 @@ import useRecipeAsyncActions from '../../state/asyncActions/recipe';
 
 const Home = () => {
     const { cuisine, category, country, username } = useParams();
-    // const cuisineUrl = cuisine === undefined ? '' : `?cuisine=${cuisine}`
-    // const categoryUrl = category === undefined ? '' : `?category=${category}`
-    // const countryUrl = country === undefined ? '' : `?country=${country}`
 
     const { loadRecipes } = useRecipeAsyncActions();
     const { recipe } = useContext(StateContext);
     const { recipes: allRecipes, isPending, error } = recipe;
+
+    useEffect(() => {
+        loadRecipes();
+    }, []);
 
     const recipes = useMemo(() => {
         if (cuisine) return allRecipes.filter((r) => r.cuisine === cuisine);
@@ -26,10 +27,6 @@ const Home = () => {
 
         return allRecipes;
     }, [allRecipes, cuisine, category, country, username]);
-
-    useEffect(() => {
-        loadRecipes();
-    }, []);
 
     const getTitle = (cuisine, category, country, username) => {
         if (cuisine) return `All ${cuisine} recipes`;
@@ -44,7 +41,6 @@ const Home = () => {
             <Banner />
             <CuisinesMenu />
             <div className='home-main'>
-                {/* {console.log(recipes)} */}
                 {error && <div>{error}</div>}
                 {isPending && recipes.length === 0 && <div>Loading...</div>}
                 {recipes && (

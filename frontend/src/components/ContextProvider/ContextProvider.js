@@ -19,7 +19,7 @@ const ContextProvider = ({ children }) => {
             tokenState,
             setToken,
         }),
-        [recipe, tokenState]
+        [recipe, dispatchRecipe, tokenState, setToken]
     );
 
     return (

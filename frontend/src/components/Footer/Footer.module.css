@@ -1,0 +1,9 @@
+.footer {
+    background-color: turquoise;
+    color: black;
+    text-align: center;
+    padding: 4px;
+    font-size: 18px;
+    position: relative;
+    display: block;
+}

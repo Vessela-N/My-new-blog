@@ -24,6 +24,7 @@ const useRecipeAsyncActions = () => {
 
         return (
             getRecipes()
+                // next 5 lines are equal to 6th line -
                 // .then((recipes) => setRecipes({
                 // 	isPending: false,
                 // 	error: '',
@@ -32,7 +33,7 @@ const useRecipeAsyncActions = () => {
                 .then((recipes) => dispatch(success(recipes)))
                 .catch((error) => dispatch(failure(error.message)))
         );
-    }, [dispatch]);
+    }, [dispatch, getRecipes]);
 
     const modifyRecipe = (fn, action) => (recipe) => {
         dispatch(request());
@@ -50,26 +51,10 @@ const useRecipeAsyncActions = () => {
             })
             .catch((error) => dispatch(failure(error.message)));
     };
+    
     const addRecipe = modifyRecipe(insertRecipe, insert);
     const updateRecipe = modifyRecipe(editRecipe, update);
     const removeRecipe = modifyRecipe(deleteRecipe, delAction);
-
-    // const removeRecipe = id => {
-    // 	dispatch(request())
-    //
-    // 	return deleteRecipe(id)
-    // 		.then(res => {
-    // 			if (res.status === 'error') {
-    // 				dispatch(failure(res.message))
-    // 				return res
-    // 			}
-    //
-    // 			dispatch(delAction(id))
-    //
-    // 			return res
-    // 		})
-    // 		.catch(error => dispatch(failure(error.message)))
-    // }
 
     return {
         loadRecipes,

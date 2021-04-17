@@ -6,29 +6,22 @@ import { StateContext } from '../../state/context';
 import categories from '../../common/categories';
 import cuisines from '../../common/cuisines';
 import countries from '../../common/countries';
-import { validations } from '../../common/helpers';
+import { validations, required } from '../../common/helpers';
 import FormError from '../FormError/FormError';
-import Footer from '../Footer/Footer';
 
 const getField = (recipe) => (field) => recipe?.[field] || '';
-const required = (field) => (val) => {
-    if (val.length === 0) return `${field} is required!`;
-    return true;
-};
+const requiredTextField = (val) => val.length > 1 || 'This field is required!';
 
 const validationFns = {
     title: [required('Title')],
-    ingredients: [
-        (val) => val.length > 1 || 'This field is required!'
-    ],
-    directions: [
-        (val) => val.length > 1 || 'This field is required!'
-    ],
+    ingredients: [requiredTextField],
+    directions: [requiredTextField],
     imageUrl: [required('ImageUrl')],
 };
 
 const Form = ({ history }) => {
     const { addRecipe, updateRecipe } = useRecipeAsyncActions();
+    const [error, setError] = useState('');
     const [validationErrors, setValidationErrors] = useState({});
     const {
         tokenState: { token },
@@ -41,7 +34,7 @@ const Form = ({ history }) => {
         if (!id) return undefined;
 
         return recipes.find((r) => r._id === id);
-    }, [id]);
+    }, [id, recipes]);
 
     // console.log({ recipe });
 
@@ -57,13 +50,6 @@ const Form = ({ history }) => {
             history.push('/login');
         }
     }, [token, history]);
-
-    const errorsForField = useCallback(
-        (field) => {
-            return validationErrors[field] || [];
-        },
-        [validationErrors]
-    );
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -94,7 +80,7 @@ const Form = ({ history }) => {
             cuisine: cuisine.value,
             country: country.value,
         };
-        
+
         const errors = validations(validationFns, newRecipe);
         // console.log({ errors });
         setValidationErrors(errors);
@@ -106,9 +92,12 @@ const Form = ({ history }) => {
                     _id: id,
                     userName: recipe.userName,
                 })
-                .then(() => history.push(`/recipe/${id}`));
+                    .then(() => history.push(`/recipe/${id}`))
+                    .catch((err) => setError(err.message));
             } else {
-                addRecipe(newRecipe).then(() => history.push('/'));
+                addRecipe(newRecipe)
+                    .then(() => history.push('/'))
+                    .catch((err) => setError(err.message));
             }
         }
     };
@@ -124,7 +113,7 @@ const Form = ({ history }) => {
                     name='title'
                     defaultValue={field('title')}
                 />
-                <FormError errors={errorsForField('title')} />
+                <FormError errors={validationErrors['title']} />
                 <label htmlFor='servings'>Servings</label>
                 <input
                     type='number'
@@ -149,7 +138,7 @@ const Form = ({ history }) => {
                     placeholder='Write each ingredient on a new line'
                     defaultValue={(field('ingredients') || []).join('\n')}
                 ></textarea>
-                <FormError errors={errorsForField('ingredients')} />
+                <FormError errors={validationErrors['ingredients']} />
                 <label htmlFor='directions'>Directions</label>
                 <textarea
                     name='directions'
@@ -159,16 +148,16 @@ const Form = ({ history }) => {
                     placeholder='Write each step on a new line'
                     defaultValue={(field('directions') || []).join('\n')}
                 ></textarea>
-                <FormError errors={errorsForField('directions')} />
-                <label htmlFor='imageUrl'>Image</label>
+                <FormError errors={validationErrors['directions']} />
+                <label htmlFor='imageUrl'>Image URL</label>
                 <input
                     type='text'
                     name='imageUrl'
                     id='imageUrl'
-                    placeholder='imageUrl'
+                    placeholder='Image URL'
                     defaultValue={field('imageUrl')}
                 />
-                <FormError errors={errorsForField('imageUrl')} />
+                <FormError errors={validationErrors['imageUrl']} />
                 <label htmlFor='category'>Category</label>
                 <select
                     name='category'
@@ -210,8 +199,8 @@ const Form = ({ history }) => {
 
                 <button>{id ? 'Edit' : 'Create'}</button>
             </form>
+            {error && <div>{error}</div>}
         </div>
-        
     );
 };
 

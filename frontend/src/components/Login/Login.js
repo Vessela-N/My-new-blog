@@ -2,12 +2,7 @@ import styles from './Login.module.css';
 import FormError from '../FormError/FormError';
 import { useCallback, useState } from 'react';
 import useAuthAsyncActions from '../../state/asyncActions/auth';
-import { validations } from '../../common/helpers';
-
-const required = (field) => (val) => {
-    if (val.length === 0) return `${field} is required!`;
-    return true;
-};
+import { validations, required } from '../../common/helpers';
 
 const validationFns = {
     userName: [required('User name')],
@@ -19,13 +14,6 @@ const Login = ({ history }) => {
     const [validationErrors, setValidationErrors] = useState({});
 
     const { login } = useAuthAsyncActions();
-
-    const errorsForField = useCallback(
-        (field) => {
-            return validationErrors[field] || [];
-        },
-        [validationErrors]
-    );
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -52,7 +40,7 @@ const Login = ({ history }) => {
                     name='userName'
                     placeholder='Your username'
                 />
-                <FormError errors={errorsForField('userName')} />
+                <FormError errors={validationErrors['userName']} />
                 <label htmlFor='password'>Password</label>
                 <input
                     type='password'
@@ -60,10 +48,10 @@ const Login = ({ history }) => {
                     name='password'
                     placeholder='Your password'
                 />
-                <FormError errors={errorsForField('password')} />
+                <FormError errors={validationErrors['password']} />
                 <button>Login</button>
             </form>
-            {error && <div>error</div>}
+            {error && <div>{error}</div>}
         </div>
     );
 };

@@ -16,11 +16,14 @@ const Recipe = ({ history }) => {
 
     const recipe = useMemo(() => {
         return recipes.find((r) => r._id === id);
-    }, [recipes]);
+    }, [recipes, id]);
 
-    useEffect(() => {
-        if (recipe === undefined) loadRecipes();
-    }, [recipe === undefined]);
+    const isRecipeUndefined = recipe === undefined;
+
+    useEffect(() => { // if you paste a recipe link !!!
+        if (isRecipeUndefined) loadRecipes();
+    }, [isRecipeUndefined, loadRecipes]);
+
     const handleDelete = (e) => {
         e.preventDefault();
         removeRecipe(id).then(() => history.push('/'));
@@ -41,7 +44,7 @@ const Recipe = ({ history }) => {
 
                     <div className={styles.left}>
                         <img src={recipe.imageUrl} alt='recipe' />
-                        <Author userName={recipe.userName} />
+                        <Link to={`/users/${recipe.userName}`}><Author userName={recipe.userName} /></Link>
 
                         <div className={styles.ingredientsDiv}>
                             <p>{`~ Servings: ${recipe.servings} ~`}</p>

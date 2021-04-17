@@ -3,9 +3,10 @@ import decode from 'jwt-decode';
 
 export default function useToken() {
     const [tokenState, setTokenState] = useState({});
+    const isUndefinedToken = tokenState.token === undefined;
 
     const tokenObject = useMemo(() => {
-        if (tokenState.token !== undefined) return tokenState;
+        if (!isUndefinedToken) return tokenState;
 
         const token = localStorage.getItem('token');
         const decodedTokenString = localStorage.getItem('decodedToken');
@@ -19,7 +20,7 @@ export default function useToken() {
         };
         setTokenState(newState);
         return newState;
-    }, [tokenState.token === undefined]);
+    }, [isUndefinedToken, tokenState]);
 
     const setToken = (token) => {
         if (token === undefined) {
