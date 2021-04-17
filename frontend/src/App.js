@@ -6,7 +6,6 @@ import Login from './components/Login/Login';
 import Recipe from './components/Recipe/Recipe';
 import ContextProvider from './components/ContextProvider/ContextProvider'
 import Register from './components/Register/Register';
-// import Footer from './components/Footer/Footer';
 
 function App() {
 

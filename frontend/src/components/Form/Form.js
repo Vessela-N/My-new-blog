@@ -113,6 +113,7 @@ const Form = ({ history }) => {
             .then((result) => {
                 const [c] = result;
                 setFlag(c.flag);
+                console.log(c);
             })
             .catch((err) => setError(err.message));
     };
